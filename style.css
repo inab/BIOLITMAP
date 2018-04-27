@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+body, *{ margin: 0; padding: 0; }
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+#wraper-field-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+.js-field-selector {
+  width: 160px;
+}
+#legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  height: auto;
+  width: auto;
+  padding: 20px 24px;
+  background: white;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  opacity: 0.7;
+  z-index: 1;
+  display: block;
+  list-style-type: none;
+}
+#legend h1 {
+  font: 800 12px/16px 'Montserrat';
+  text-transform: uppercase;
+  color: #2D3C43;
+  margin-bottom: 12px;
+}
+#legend-content{
+  font: 800 12px/16px 'Open Sans';
+  margin-bottom: 6px;
+}
+#legend-content > li {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+#legend-content > li:last-child {
+  margin-bottom: 0;
+}
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+      }
+      
+      #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+		z-index: 0;
+      }
+
+      .slider-container{
+        display: table-cell;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 20px;
+        z-index: 9999;
+
+        vertical-align: middle;
+        background: white;
+        padding: 10px;
+      }
+      .slider-container label, .slider-container input{
+        vertical-align:middle;
+      }
+      .slider-container label{
+        width: 50px;
+      }
+	  #controls {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 400px;
+        z-index: 2;
+      }
+      #controls h2 {
+        font: 300 12px/16px 'Open Sans';
+        background: rgba(0, 0, 0, 0.64);
+        border-radius: 4px;
+        padding: 8px 12px;
+        color: #fff;
+      }
+      .container {
+        padding: 8px 12px;
+        background: white;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        color: #2E3C43;
+        margin-top: 75px;
+      }
+      #content h3 {
+        font: 400 16px/22px 'Open Sans';
+        margin-bottom: 4px;
+      }
+      #content p {
+        font: 400 12px/16px 'Open Sans';
+      }
+	  #histogram {
+            position: absolute;
+            bottom: 30%;
+            right: 30%;
+            height: auto;
+            width: auto;
+            padding: 20px 24px;
+            background: white;
+            box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+            border-radius: 4px;
+            opacity: 1;
+            z-index: 3;
+            width: 450px;
+        }
+
+        #histogram>h1 {
+            font: 800 12px/16px 'Montserrat';
+            text-transform: uppercase;
+            color: #2D3C43;
+            margin-bottom: 12px;
+        }
+		
+		#sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        height: 100vh;
+}
+
+body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+			background: white;
+			background-color: white;
+        }
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+
+		.hamburger{
+  background:none;
+  position:absolute;
+  top:15px;
+  left:0;
+  line-height:45px;
+  padding:5px 15px 0px 15px;
+  color:#000;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+}
+
+#leftSidebar{
+  background:rgba(255, 255, 255, 0.8);
+  bottom:0;
+  top:0;
+  padding:5px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+  position:absolute;
+  min-width: 250px;
+        max-width: 250px;
+        height: 100vh;
+}
+
+.btn-plot-close {
+top:5px;
+  right:5px;
+  position:absolute;
+}
+
+#leftSidebarClosed{
+  #background:rgba(255, 255, 255, 0.8);
+  top:0;
+  left:0;
+  padding:5px 15px 0px 15px;
+  color:#999;
+  border:0;
+  font-size:1.4em;
+  font-weight:bold;
+  cursor:pointer;
+  outline:none;
+  z-index:10000000000000;
+  position:absolute;
+  min-width: 250px;
+        max-width: 400px;
+}
+
+.multiselect .dropdown-toggle .btn .btn-default {
+    height: 62px;
+    font-family: cursive;
+}	
+		
+	
