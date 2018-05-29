@@ -20,9 +20,19 @@ In order to obtain the raw source data with which this application has been buil
 1) Access to the Scopus (www.scopus.com) document search tool
 2) Search the documents by using the following query: 
 
-``ISSN ( 'JOURNAL\_ISSN' ) AND ( LIMIT-TO ( PUBYEAR , 2017 ) OR LIMIT-TO ( PUBYEAR , 2016 ) OR LIMIT-TO ( PUBYEAR , 2015 ) OR LIMIT-TO ( PUBYEAR , 2014 ) OR LIMIT-TO ( PUBYEAR , 2013 ) OR LIMIT-TO ( PUBYEAR , 2012 ) OR LIMIT-TO ( PUBYEAR , 2011 ) OR LIMIT-TO ( PUBYEAR , 2010 ) OR LIMIT-TO ( PUBYEAR , 2009 ) OR LIMIT-TO ( PUBYEAR , 2008 ) OR LIMIT-TO ( PUBYEAR , 2007 ) OR LIMIT-TO ( PUBYEAR , 2006 ) OR LIMIT-TO ( PUBYEAR , 2005 ) ) AND ( LIMIT-TO ( EXACTKEYWORD , "Article" ) )``
+``ISSN ( 'JOURNAL_ISSN' ) AND ( LIMIT-TO ( PUBYEAR , 2017 ) OR LIMIT-TO ( PUBYEAR , 2016 ) OR LIMIT-TO ( PUBYEAR , 2015 ) OR LIMIT-TO ( PUBYEAR , 2014 ) OR LIMIT-TO ( PUBYEAR , 2013 ) OR LIMIT-TO ( PUBYEAR , 2012 ) OR LIMIT-TO ( PUBYEAR , 2011 ) OR LIMIT-TO ( PUBYEAR , 2010 ) OR LIMIT-TO ( PUBYEAR , 2009 ) OR LIMIT-TO ( PUBYEAR , 2008 ) OR LIMIT-TO ( PUBYEAR , 2007 ) OR LIMIT-TO ( PUBYEAR , 2006 ) OR LIMIT-TO ( PUBYEAR , 2005 ) ) AND ( LIMIT-TO ( EXACTKEYWORD , "Article" ) )``
 
 3) Export the documents in CSV format with the 'Export' option.
+
+## Journals
+
+In this first version of the application, the articles from the following journals are extracted:
+
+1) Oxford Bioinformatics (ISSN 1460-2059)
+2) Nucleic Acids Research (ISSN 1362-4962)
+3) BMC Bioinformatics (ISSN 1471-2105)
+4) BMC Genomics (ISSN 1471-2164)
+5) PLoS Computational Biology (ISSN 1553-734X)
 
 ## CONTACT
 
