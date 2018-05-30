@@ -7,6 +7,7 @@ var createError = require('http-errors');
 
 app.use('/', indexRouter);
 app.use('/biolitmap', biolitmapRouter);
+
 // Catch 404 errors and forward them to the error handler
 app.use(function(req, res, next) {
   next(createError(404));
