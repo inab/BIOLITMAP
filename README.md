@@ -1,17 +1,32 @@
 # BIOLITMAP: a web-based geolocated and temporal visualization of the evolution of bioinformatics publications
 
-## DESCRIPTION
+## Description
 
 Code for the web-based geolocated and temporal visualization of bioinformatics research (BIOLITMAP): http://socialanalytics.bsc.es/biolitmap/.
 
 Paper submitted to Oxford Bioinformatics.
 
-## DIRECTORY STRUCTURE
+## Directory structure
 
 * In /data the export of the BIOLITMAP SQL database is stored, as it was in December 2017.
 * In /scripts the tools used for the NLP tasks are stored
-** /scripts/src stores the codes related to the NLP, Clustering, Topic Modeling and Perplexity Analysis tasks.
-** /scripts/vis stores the visualization created using the final Latent Dirichlet Allocation model, by employing the pyLDAvis package.
+* /scripts/src stores the codes related to the NLP, Clustering, Topic Modeling and Perplexity Analysis tasks.
+* /scripts/vis stores the visualization created using the final Latent Dirichlet Allocation model, by employing the pyLDAvis package.
+* /API stores the source codes of the REST API.
+
+## Getting the data from the REST API
+
+We have deployed in our servers a REST API to gather the data from the map in JSON format, the following endpoints are available:
+
+1) http://socialanalytics.bsc.es/biolitmap-api/biolitmap/list - To get the complete list of the data.
+2) http://socialanalytics.bsc.es/biolitmap-api/biolitmap/filter/source/"journal" - To filter by source (e.g. Oxford Bioinformatics).
+3) http://socialanalytics.bsc.es/biolitmap-api/biolitmap/filter/year/[+-]"year" - To filter by year (e.g. 2010), you can use the + and - symbols to query for greater-equal or less-equal, respectively (e.g. +2010 or -2010).
+4) http://socialanalytics.bsc.es/biolitmap-api/biolitmap/filter/nameAffiliation/"institution" - To filter by research institution (e.g. University of Cambridge).
+  
+### Example output from the /list endpoint
+
+<div style="text-align:center"><img src="https://i.imgur.com/rC8VHO9.png" /></div>
+
 
 ## Getting the raw source data from Scopus
 
@@ -34,11 +49,11 @@ In this first version of the application, the articles from the following journa
 4) BMC Genomics (ISSN 1471-2164)
 5) PLoS Computational Biology (ISSN 1553-734X)
 
-## CONTACT
+## Contact
 
 You can contact the developers by sending an email to adrian.bazaga@bsc.es or maria.rementeria@bsc.es
 
-## PREVIEW
+## Preview
 
 <div style="text-align:center"><img src="https://i.imgur.com/iIvs1P8.png" /></div>
 
