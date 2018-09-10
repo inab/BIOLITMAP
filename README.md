@@ -4,7 +4,7 @@
 
 Code for the web-based geolocated and temporal visualization of bioinformatics research (BIOLITMAP): http://socialanalytics.bsc.es/biolitmap/.
 
-Paper submitted to Oxford Bioinformatics.
+Paper accepted to Oxford Bioinformatics.
 
 ## Directory structure
 

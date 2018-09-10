@@ -1,186 +1,224 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>BIOLITMAP</title>
+    <title>BIOLITMAP</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <!--<link rel="shortcut icon" href="https://cartodb.com/assets/favicon.ico" />-->
 
     <!-- leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js">
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+    </script>
 
     <!-- underscore -->
-    <script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://fastcdn.org/Underscore.js/1.8.3/underscore-min.js">
+    </script>
 
     <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="jquery.tablesorter.js"></script> 
+    <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js">
+    </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css" />
 
     <!-- carto.js -->
-    <script src="http://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta.10/carto.min.js"></script>
+    <script src="http://cartodb-libs.global.ssl.fastly.net/carto.js/v4.0.0-beta.10/carto.min.js">
+    </script>
 
-	<!-- selec2 -->
+    <!-- selec2 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js">
+    </script>
 
-	
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	
-	<link href="style.css" rel="stylesheet"></style>
-		<!-- chartjs -->
-    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js"></script>
-    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-	
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-		
-		<!-- printThis -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.12.3/printThis.min.js"></script>
 
-		
+    <script src="https://unpkg.com/axios/dist/axios.min.js">
+    </script>
+
+    <link href="style.css" rel="stylesheet">
+    </style>
+    <!-- chartjs -->
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.bundle.js">
+    </script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js">
+    </script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- printThis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.12.3/printThis.min.js"></script>
+
+
 
 </head>
+
 <body>
-	<div id="leftSidebarClosed">
-	<button id="sidebarButtonClosed" type="button" class="btn btn-primary btn-graphics" data-toggle="tooltip" data-placement="top" title="Open the plot options window">Graphics</button>
-	</div>
-	<div id="leftSidebar" style="z-index: 10">
-	<button id="sidebarButtonOpen" type="button" class="btn btn-primary btn-graphics">Close</button><br><br><br>
-	<center>
-	Choose a graphic to plot it on the map<br><br><br>
-	<button type="button" id ="plotArticlesPerJournal" data-toggle="tooltip" data-placement="right" title="Show the total articles per journal" class="btn btn-primary" style="z-index: 10">Articles per journal</button><br><br>
-	<button type="button" id ="plotArticlesPerYear" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Show the total articles per year" style="z-index: 10">Articles per year</button><br><br>
-	<button type="button" id ="plotArticlesPerTopic" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Show the total articles per topic" style="z-index: 10">Articles per topic</button>
-	
-	</center>
-	</div>
+    <div id="leftSidebarClosed">
+        <button type="button" id="moreInfoButton" class="btn btn-primary ui-front" data-toggle="tooltip" data-placement="top" title="More information" style="position:fixed; bottom: 25px; right: 25px;">
+            <span class="glyphicon glyphicon-info-sign">&#x1F6C8;</span>
+        </button>
+        <button type="button" id="feedbackButton" class="btn btn-primary ui-front" data-toggle="tooltip" data-placement="top" title="Give us feedback!" style="position:fixed; bottom: 25px; right: 65px;">
+            <span class="glyphicon glyphicon-direction">&#x2690;</span>
+        </button>
+        <button id="sidebarButtonClosed" type="button" class="btn btn-primary btn-graphics" data-toggle="tooltip" data-placement="top" title="Open the plot options window">Graphics</button>
+    </div>
+    <div id="leftSidebar" style="z-index: 10">
+        <button id="sidebarButtonOpen" type="button" class="btn btn-primary btn-graphics">Close</button><br><br><br>
+        <center>
+            Choose a graphic to plot it on the map<br><br><br>
+            <button type="button" id="plotArticlesPerJournal" data-toggle="tooltip" data-placement="right" title="Show the total articles per journal" class="btn btn-primary" style="z-index: 10">Articles per journal</button><br><br>
+            <button type="button" id="plotArticlesPerYear" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Show the total articles per year" style="z-index: 10">Articles per year</button><br><br>
+            <button type="button" id="plotArticlesPerTopic" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Show the total articles per topic" style="z-index: 10">Articles per topic</button>
+
+        </center>
+    </div>
     <!-- map div -->
     <div id="map" class="sidebar-map"></div>
 
-	
-	<!-- histogram div -->
-    <div id="histogram" style="height: 50%; cursor: move;">
-	<button id="histogramClose" type="button" class="btn btn-primary btn-plot-close" data-toggle="tooltip" data-placement="top" title="Close this graphics window">X</button>
-        <h1 id="articlesPerJournalChartTitle"><center>DISTRIBUTION OF TOTAL ARTICLES PER JOURNAL<br>WITH THE SELECTED FILTERS</center></h1>
-        <canvas id="articlesPerJournalChart" width="50" height="30%"></canvas>
-		<h1 id="articlesPerYearChartTitle"><center>DISTRIBUTION OF TOTAL ARTICLES PER YEAR WITH<br>THE SELECTED FILTERS</center></h1>
-		<canvas id="articlesPerYearChart" width="50" height="30%"></canvas>
-		<h1 id="articlesPerTopicChartTitle"><center>DISTRIBUTION OF TOTAL ARTICLES PER TOPIC WITH<br>THE SELECTED FILTERS</center></h1>
-		<canvas id="articlesPerTopicChart" width="100px" height="20%"></canvas>
-    </div>
-	
-	<div id="controls">
-      <div id="content">
-      </div>
-    </div>
-	
-	<!-- infowindow div -->
-    <script type="infowindow/html" id="infowindow_template">
-      <div class="cartodb-popup v2">
-        <a href="#close" class="cartodb-popup-close-button close">x</a>
-        <div class="cartodb-popup-content-wrapper">
-          <div class="cartodb-popup-content">
-            <h3>{{name}}</h3>
-            <h4>{{papers}} papers</h4>
-        </div>
-        <div class="cartodb-popup-tip-container"></div>
-      </div>
-    </script>
-	
-    <div id="wraper-field-selector">
-	<div class="col-xs-7">
-    <div class="form-group">
-      <select id="yearSelector" multiple="multiple">
-        <option value="2005">2005</option>
-    <option value="2006">2006</option>
-    <option value="2007">2007</option>
-    <option value="2008">2008</option>
-    <option value="2009">2009</option>
-    <option value="2010">2010</option>
-	<option value="2011">2011</option>
-	<option value="2012">2012</option>
-	<option value="2013">2013</option>
-	<option value="2014">2014</option>
-	<option value="2015">2015</option>
-	<option value="2016">2016</option>
-	<option value="2017">2017</option>
-      </select>
-	  <select id="journalsSelector" multiple="multiple">
-        <option value="'Oxford Bioinformatics'">Oxford Bioinformatics</option>
-    <option value='"BMC Bioinformatics"'>BMC Bioinformatics</option>
-    <option value='"Nucleic Acids Research"'>Nucleic Acids Research</option>
-    <option value='"BMC Genomics"'>BMC Genomics</option>
-    <option value='"PLoS Computational Biology"'>PLoS Computational Biology</option>
-      </select>
-	  <select id="topicSelector" multiple="multiple" style="width:50px;">
-        <option value="'Computational Biology > Molecular genetics'">Molecular genetics</option>
-    <option value="'Computational Biology > Molecular interactions, pathways and networks'">Molecular interactions, pathways and networks</option>
-    <option value="'Computational Biology > Nucleic acids > DNA'">DNA</option>
-    <option value="'Computational Biology > Nucleic acids > RNA'">RNA</option>
-    <option value="'Computational Biology > Phylogeny'">Phylogeny</option>
-	<option value="'Computational Biology > Sequence analysis'">Sequence analysis</option>
-	<option value="'Computational Biology > Sequence analysis > Mapping'">Mapping</option>
-	<option value="'Computational Biology > Structure analysis'">Structure analysis</option>
-	<option value="'Omics > Genomics > Functional genomics'">Functional genomics</option>
-	<option value="'Omics > Genomics > Pharmacogenomics'">Pharmacogenomics</option>
-	<option value="'Omics > Genomics > Proteomics'">Proteomics</option>
-	<option value="'Omics > Genomics > Transcriptomics'">Transcriptomics</option>
-	<option value="'Software > Tools'">Tools</option>
-      </select>
-    </div>
-	</div>
-	</div>
 
-    
+    <!-- histogram div -->
+    <div id="histogram" style="height: 50%; cursor: move;">
+        <button id="histogramClose" type="button" class="btn btn-primary btn-plot-close" data-toggle="tooltip" data-placement="top" title="Close this graphics window">X</button>
+        <h1 id="articlesPerJournalChartTitle">
+            <center>DISTRIBUTION OF TOTAL ARTICLES PER JOURNAL<br>WITH THE SELECTED FILTERS</center>
+        </h1>
+        <canvas id="articlesPerJournalChart" width="50" height="30%"></canvas>
+        <h1 id="articlesPerYearChartTitle">
+            <center>DISTRIBUTION OF TOTAL ARTICLES PER YEAR WITH<br>THE SELECTED FILTERS</center>
+        </h1>
+        <canvas id="articlesPerYearChart" width="50" height="30%"></canvas>
+        <h1 id="articlesPerTopicChartTitle">
+            <center>DISTRIBUTION OF TOTAL ARTICLES PER TOPIC WITH<br>THE SELECTED FILTERS</center>
+        </h1>
+        <canvas id="articlesPerTopicChart" width="100px" height="20%"></canvas>
+    </div>
+
+    <div id="controls">
+        <div id="content">
+        </div>
+    </div>
+
+    <!-- infowindow div -->
+    <script type="infowindow/html" id="infowindow_template">
+        <div class="cartodb-popup v2">
+            <a href="#close" class="cartodb-popup-close-button close">x</a>
+            <div class="cartodb-popup-content-wrapper">
+                <div class="cartodb-popup-content">
+                    <h3>{{name}}</h3>
+                    <h4>{{papers}} papers</h4>
+                </div>
+                <div class="cartodb-popup-tip-container"></div>
+            </div>
+    </script>
+
+    <div id="myModalMoreInfo" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">More information about this tool</h4>
+                </div>
+                <div class="modal-body">
+                    <center><img src="images/BSC-logo.jpg" width="30%" height="30%"><br><br> This application has been developed by the Social Analytics team in the <a href="https://www.bsc.es" target="_blank">Barcelona Supercomputing Center - Centro Nacional de Supercomputación</a>.<br><br>
+                        <u><b>Development Team:</b></u><br><br> Adrián Rodríguez-Bazaga (Main Developer & Data Engineer) <a href="https://www.linkedin.com/in/adrianbazaga/" target="_blank"><img src="images/linkedin-logo.png" width="16px" height="16px"></a> <a href="mailto:adrian.bazaga@bsc.es"><img src="images/email-icon.png" width="16px" height="16px"></a><br> María José Rementeria (Team Leader) <a href="mailto:maria.rementeria@bsc.es"><img src="images/email-icon.png" width="16px" height="16px"></a></center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="myModalFeedback" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Give us feedback!</h4>
+                </div>
+                <div class="modal-body">
+                    <center>If you detect any error, or if you want to give us some feedback, don't hesitate to contact the development team:<br><br>
+                        <u><b>Development Team:</b></u><br><br> Adrián Rodríguez-Bazaga (Main Developer & Data Engineer) <a href="https://www.linkedin.com/in/adrianbazaga/" target="_blank"><img src="images/linkedin-logo.png" width="16px" height="16px"></a> <a href="mailto:adrian.bazaga@bsc.es"><img src="images/email-icon.png" width="16px" height="16px"></a><br> María José Rementeria (Team Leader) <a href="mailto:maria.rementeria@bsc.es"><img src="images/email-icon.png" width="16px" height="16px"></a></center>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="wraper-field-selector">
+        <div class="col-xs-7">
+            <div class="form-group">
+                <select id="yearSelector" multiple="multiple">
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                </select>
+                <select id="journalsSelector" multiple="multiple">
+                    <option value="'Oxford Bioinformatics'">Oxford Bioinformatics</option>
+                    <option value='"BMC Bioinformatics"'>BMC Bioinformatics</option>
+                    <option value='"Nucleic Acids Research"'>Nucleic Acids Research</option>
+                    <option value='"BMC Genomics"'>BMC Genomics</option>
+                    <option value='"PLoS Computational Biology"'>PLoS Computational Biology</option>
+                </select>
+                <select id="topicSelector" multiple="multiple" style="width:50px;">
+                    <option value="'Computational Biology > Molecular genetics'">Molecular genetics</option>
+                    <option value="'Computational Biology > Molecular interactions, pathways and networks'">Molecular interactions, pathways and networks</option>
+                    <option value="'Computational Biology > Nucleic acids > DNA'">DNA</option>
+                    <option value="'Computational Biology > Nucleic acids > RNA'">RNA</option>
+                    <option value="'Computational Biology > Phylogeny'">Phylogeny</option>
+                    <option value="'Computational Biology > Sequence analysis'">Sequence analysis</option>
+                    <option value="'Computational Biology > Sequence analysis > Mapping'">Mapping</option>
+                    <option value="'Computational Biology > Structure analysis'">Structure analysis</option>
+                    <option value="'Omics > Genomics > Functional genomics'">Functional genomics</option>
+                    <option value="'Omics > Genomics > Pharmacogenomics'">Pharmacogenomics</option>
+                    <option value="'Omics > Genomics > Proteomics'">Proteomics</option>
+                    <option value="'Omics > Genomics > Transcriptomics'">Transcriptomics</option>
+                    <option value="'Software > Tools'">Tools</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
 
     <script type="text/cartocss" id="style">
-      #layer {
-        marker-fill-opacity: 1;
-  marker-line-width: 1;
-  marker-line-color: #FFFFFF;
-  marker-line-opacity: 1;
-  
-  [papers >= 1] {
-    marker-width: 10;
-    marker-fill: #1a9641;
-    marker-allow-overlap: false;
-  }
-  
-  [papers >= 20] {
-    marker-width: 15;
-    marker-fill: #fdae61;
-    marker-allow-overlap: false;
-  }
-  
-  [papers > 50] {
-    marker-width: 20;
-    marker-fill: #d7191c;
-    marker-allow-overlap: true;
-  }
-		
-      }
-      
+        #layer { marker-fill-opacity: 1; marker-line-width: 1; marker-line-color: #FFFFFF; marker-line-opacity: 1; [papers >= 1] { marker-width: 10; marker-fill: #1a9641; marker-allow-overlap: false; } [papers >= 20] { marker-width: 15; marker-fill: #fdae61; marker-allow-overlap: false; } [papers > 50] { marker-width: 20; marker-fill: #d7191c; marker-allow-overlap: true; } }
+
     </script>
 
     <script type="text/sql" id="query">
-      SELECT 
-        DISTINCT(A.name), A.cartodb_id, A.the_geom_webmercator, sum(CAST(B.num_papers AS INT)) AS papers
-      FROM 
-        places0517_2 A JOIN results_full_280218_v1 B ON A.name = B.nameaffiliation
-      WHERE
-        B.year IN (<%= year %>) AND B.source IN (<%= journal %>) AND B.edamcategory IN (<%= edamcat %>)
-	  GROUP BY A.name,A.cartodb_id,A.the_geom_webmercator
+        SELECT DISTINCT(A.name), A.cartodb_id, A.the_geom_webmercator, sum(CAST(B.num_papers AS INT)) AS papers FROM places0517_2 A JOIN results_full_280218_v1 B ON A.name = B.nameaffiliation WHERE B.year IN (<%= year %>) AND B.source IN (<%= journal %>) AND B.edamcategory IN (<%= edamcat %>) GROUP BY A.name,A.cartodb_id,A.the_geom_webmercator
     </script>
-	
-	<!--biolitmap-->
-	<script src="biolitmap.min.js"></script>
+
+    <!--biolitmap-->
+    <script src="biolitmap.js">
+    </script>
 
 </body>
+
 </html>

@@ -224,5 +224,12 @@ top:5px;
     height: 62px;
     font-family: cursive;
 }	
-		
+    
+/* Sortable tables */
+table.sortable thead {
+  background-color:#eee;
+  color:#666666;
+  font-weight: bold;
+  cursor: default;
+}
 	
